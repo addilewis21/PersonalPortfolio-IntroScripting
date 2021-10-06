@@ -3,13 +3,19 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    width: 100%;
+    margin: 0;
+}
+
 a {
     text-decoration: none;
-    color: #cfcfcf;
+    color: #F2F2F2
 }
 
 ul {
     list-style: none;
+    margin: 0;
 }
 
 #navbar {
@@ -20,12 +26,11 @@ ul {
     left: 0;
     width: 100%;
     z-index: 10;
-    background-color: #2d5344;
+    background-color: #BF834E;
 }
 
 #nav-list {
     display: flex;
-    margin-right: 2rem;
 }
 
 #nav-list a {
@@ -35,17 +40,22 @@ ul {
 }
 
 #nav-list a:hover {
-    background-color: #766e9d;
+    background-color: #261602;
 }
 
 #welcome-section {
-   background-color: #6495ED;
+   background-color: #F2F2F2;
    height: 100vh;
    display: flex;
+   flex-direction: column;
    justify-content: center;
    align-items: center;
-   width: 100%;
    font-size: 2.5rem;
+}
+
+#welcome-section h2 {
+    margin-top: -2.5rem;
+    font-size: 2rem;
 }
 
 h1 {
@@ -53,10 +63,10 @@ h1 {
 }
 
 .projects-grid {
-    background-color: #e696b5;
+    background-color: #71A66F;
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: 0;
 
 }
 
@@ -72,7 +82,7 @@ figcaption {
 
 #contact {
     height: 19rem;
-    background-color: #748f84;
+    background-color: #027353;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -84,42 +94,47 @@ figcaption {
 #contact h1 {
    font-size: 3rem;
    margin: .5rem 0 1rem 0;
+   color: #F2F2F2;
 }
 
 #contact p {
     font-size: x-large;
     margin: 0 .5rem 1rem 0;
+    color: #F2F2F2;
 }
 
 #contact div {
     display: flex;
     justify-content: center;
-    text-shadow: 2px 2px 1px #2b4e4d;
     transition: transform 0.3s ease-out;
+    color: #F2F2F2;
 }
 
 #contact div a {
     margin: 2rem;
     font-size: 1.3rem;
-    color: #eeeeee;
 }
 #contact div a:hover {
     transform: translateY(8px);
 }
 
 footer {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
-    background-color: #748f84;
-    margin-bottom: 0;
+    color: #F2F2F2;
+    margin-bottom: -1rem;
 }
 
 hr {
-    margin: 0;
-
-}
-
+    border: 0;
+    clear:both;
+    display:block;
+    width: 96%;               
+    background-color:#F2F2F2;
+    height: 7px;
+  }
+  
 /*MEDIAS*/
 @media (max-width: 75em) {
     html {
