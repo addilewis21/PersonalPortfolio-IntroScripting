@@ -1,0 +1,21 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+img {
+    border: 10px solid rgb(158, 190, 190);
+    display: block;
+}
+
+figcaption {
+    text-align: center;
+    font-size: x-large;
+    background-color: rgb(158, 190, 190);
+    padding: 0  0 .4em 0;
+}
+
+header {
+    
+}
