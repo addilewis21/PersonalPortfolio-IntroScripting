@@ -9,4 +9,3 @@ people.forEach(element => {
     charFigure.appendChild(charImg)
     mainContent.appendChild(charFigure)
 }
-
