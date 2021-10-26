@@ -4,6 +4,37 @@
     justify-content: center;
 }
 
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
 figure img {
     width: 200px;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333333;
+    padding: 2em 0;
+
+}
+
+figure {
+    margin: 4px;
+}
+
+figcaption {
+    text-align: center;
+}
+
+button {
+    padding: 1em;
+    font-size: x-large;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: pink;
 }
