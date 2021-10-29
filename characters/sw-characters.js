@@ -2,7 +2,7 @@
 import { people } from '../data/people.js';
 import { getLastNumber } from '../utils/index.js';
 
-const mainContent = document.querySelectory("#main");
+const mainContent = document.querySelector("#main");
 
 const maleCharacters = people.filter((person) => person.gender === "male");
 const femaleCharacters = people.filter((person) => person.gender === "female");
