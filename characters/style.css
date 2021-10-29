@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #E2E8CE;
 }
 
 * {
@@ -16,7 +17,7 @@ figure img {
 header {
     display: flex;
     justify-content: space-around;
-    background-color: #333333;
+    background-color: #E2E8CE;
     padding: 2em 0;
 
 }
@@ -32,9 +33,34 @@ figcaption {
 button {
     padding: 1em;
     font-size: x-large;
-    border-radius: 5px;
+    border-radius: 2px;
+    border: 9px double #406450;
+    color: #406450;
+    font-weight: 700;
+   font-family: 'Montserrat', sans-serif;
+   background-color: #C1D7CB;
 }
 
 button:hover {
-    background-color: pink;
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.1em);
+}
+
+figcaption {
+    text-align: center;
+    font-size: .8rem;
+    background-color: #406450;
+    color: #C1D7CB;
+    padding: .3rem 0;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+img {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    display: block;
+    height: auto;
+    border: 2px solid #406450;
+    
 }
