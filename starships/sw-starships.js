@@ -12,7 +12,7 @@ const modalBackground = document.querySelector('.modal-background')
 const missingMessage = document.querySelector('.missingMessage')
 
 closeButton.addEventListener('click', () => { modal.classList.toggle('is-active') })
-modalBackgrouund.addEventListener('click', () => modal.classList.toggle('is-active'))
+modalBackground.addEventListener('click', () => modal.classList.toggle('is-active'))
 
 function populateNav(starships){
     starships.forEach(starship => {
@@ -32,11 +32,12 @@ function populateNav(starships){
 populateNav(starships)
 
 function populateShipView(shipData){
+    /// clear the page first, then populate
     removeChildren(shipView)
-    console.log('THanks for lcikling on ${`shipData.name`}')
+    console.log(`Th anks for clicking on ${shipData.name}`)
     let shipImage = document.createElement('img')
     let shipNum = getLastNumber(shipData.url)
-    shipImage.src = 'https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg'
+    shipImage.src = `https://starwars-visualguide.com/assets/img/starships/${charNum}.jpg`
     shipImage.addEventListener('error', ()  => {
         shipImage.hidden = true
         modal.classList.toggle('is-active')
