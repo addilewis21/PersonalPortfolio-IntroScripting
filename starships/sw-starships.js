@@ -11,9 +11,7 @@ const modalBackground = document.querySelector('.modal-background')
 
 const missingMessage = document.querySelector('.missingMessage')
 
-closeButton.addEventListener('click', () => {
-    modal.classList.toggle('is-active')
-})
+closeButton.addEventListener('click', () => { modal.classList.toggle('is-active') })
 modalBackgrouund.addEventListener('click', () => modal.classList.toggle('is-active'))
 
 function populateNav(starships){
