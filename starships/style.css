@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.nav {
+    margin-left: 1em;
+}
+
+#main {
+    display: flex;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.box {
+    background-color: bisque;
+    text-align: center;
+    font-size: x-large;
+}

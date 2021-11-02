@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 import { people } from '../data/people.js';
-import { getLastNumber } from '../utils/index.js';
+import { getLastNumber, removeChildren } from '../utils/index.js';
+
 
 const mainContent = document.querySelector("#main");
 
@@ -35,9 +36,7 @@ document.body.insertBefore(header, mainContent);
 
 function populateDOM(characters) {
 	// clear the page first, then populate
-	while (mainContent.firstChild) {
-	mainContent.removeChild(mainContent.firstChild);
-	}
+  removeChildren(mainContent)
   characters.forEach((element) => {
     const charFigure = document.createElement("figure");
     const charImg = document.createElement("img");
