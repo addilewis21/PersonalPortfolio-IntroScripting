@@ -2,12 +2,12 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: #FFDAC2;
+    background-color: #ACADE3;
 }
 
 header {
-   color: #FFDAC2;
-   background-color: #7A3100;
+   color: #ACADE3;
+   background-color: #454696;
    font-size: xx-large;
    text-align: center;
     padding: 1em;
@@ -16,8 +16,8 @@ header {
 
 figcaption {
     text-align: center;
-    background-color: #7A3100;
-    color: #FFDAC2;
+    background-color: #454696;
+    color: #ACADE3;
     padding: .3rem 0;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
@@ -29,6 +29,6 @@ img {
     border-top-right-radius: 2px;
     display: block;
     height: auto;
-    border: 4px solid #7A3100;
+    border: 4px solid #454696;
     
 }
