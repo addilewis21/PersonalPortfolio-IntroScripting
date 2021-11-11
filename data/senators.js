@@ -4600,7 +4600,4 @@ export const senators = [
                   "votes_with_party_pct": 95.12
               }
           ]
-      }
-  ]
-}
-]
+      
