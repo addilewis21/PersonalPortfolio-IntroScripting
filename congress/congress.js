@@ -1,1 +1,1 @@
-import { }
+import { congress } from "../data/congress.js";

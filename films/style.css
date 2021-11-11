@@ -3,6 +3,8 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     background-color: #ACADE3;
+    font-family: 'Montserrat', sans-serif;
+font-family: 'Open Sans', sans-serif;
 }
 
 header {
@@ -10,7 +12,7 @@ header {
    background-color: #454696;
    font-size: xx-large;
    text-align: center;
-    padding: 1em;
+   padding: 1em;
 
 }
 
