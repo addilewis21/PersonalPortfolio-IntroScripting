@@ -45,6 +45,9 @@ font-family: 'Open Sans', sans-serif;
     width: 100%;
   }
   
+  img {
+    border: 2px solid #bd8258;
+  }
  
   .box {
     background-color: #bd8258;
