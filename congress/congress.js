@@ -7,6 +7,28 @@ const senatorDiv = document.querySelector('.senators')
 const loyaltyHeading = document.querySelector('.mostLoyal')
 const seniorityHeading = document.querySelector('.seniority')
 
+const allRepub = members.filter((members) => members.party === 'R')
+const allDemo = members.filter((members) => members.party === 'D')
+
+
+function fnChangeBorder(boxId) {
+  document.getElementById(boxId).style.border = "solid #AA00FF";
+}
+
+
+
+
+
+
+
+
+
+
+
+// const republicanButton = document.querySelector('.repubButton')
+// republicanButton.addEventListener('click', () => SimplifiedMembers(allRepub))
+
+
 function SimplifiedMembers(chamberFilter) {
   const filteredArray = members.filter((member) =>
     chamberFilter ? member.short_title === chamberFilter : member,
@@ -42,6 +64,7 @@ function populateSenatorDiv(simpleSenators) {
   })
 }
 
+
 //const filterSenators = (prop, value) => SimplifiedSenators().filter(senator => senator[prop] === value)
 
 //console.log(filterSenators('gender', 'F'))
@@ -70,3 +93,4 @@ const spineless = mostLoyal.map((coward) => {
 loyaltyHeading.appendChild(cowardList)
 
 populateSenatorDiv(SimplifiedMembers())
+

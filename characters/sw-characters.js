@@ -18,7 +18,7 @@ const header = document.createElement('header')
 const maleButton = document.createElement('button')
 maleButton.textContent = 'Male Characters'
 //populateDOM(people)
-
+ 
 maleButton.addEventListener('click', () => populateDOM(maleCharacters))
 
 const femaleButton = document.createElement('button')
