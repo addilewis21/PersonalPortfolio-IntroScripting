@@ -1,25 +1,108 @@
 * {
-    margin: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Merriweather', serif;
+}
 
-  header {
-    height: 200px;
-  }
+.headCon {
+  margin: 1em;
+
+}
+
+h1{
+  text-align: center;
+  background-color: #bd2f0f;
+  color: white;
+  padding: .5em;
   
-  .senators {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  figure {
-    width: 160px;
+}
+
+header {
+  align-items: center;
+}
+
+h3 {
+  margin-top: 1em;
+  text-align: center;
+}
+
+
+.mostLoyal {
+  background-color: rgba(0, 24, 84, 0.329);
+  margin: 1em;
+  padding: 1em;
+}
+li {
+  margin: .3em;
+}
+
+.buts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  width: 95%;
+  margin: auto;
+}
+
+button {
+  font-size: 1.5em;
+  width: 250px;
+  padding: 1em;
+  background-color: #001854;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  font-size: 1.5em;
+  width: 250px;
+  padding: 1em;
+  background-color: #5171c0;
+  color: white;
+  border: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .buts {
     display: flex;
     flex-direction: column;
-    margin: 1em;
+    padding: 1em;
+    width: 95%;
   }
   
- figcaption {
-     text-align: center;
-     
- }
+  button {
+    font-size: 1.2em;
+    padding: 1em;
+    width: 100%;
+    background-color: #001854;
+    color: white;
+    border: none;
+  }
+  button:hover {
+    font-size: 1.2em;
+    padding: 1em;
+    width: 100%;
+    background-color: #5171c0;
+    color: white;
+    border: none;
+  }
+}
+
+.senators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+figure {
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+figcaption {
+  text-align: center;
+}
