@@ -1,100 +1,115 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Merriweather', serif;
+  font-family: 'Poppins', sans-serif;
 }
 
+ul {
+  list-style-type: none;
+  background-color: #476388;
+  color: #191c2F;
+  padding: 4%;
+  text-align: center;
+  width: 50%;
+}
 
 .headCon {
-  margin: 1em;
-
+  display: flex;
 }
 
 h1{
   text-align: center;
-  background-color: #bd2f0f;
-  color: white;
-  padding: .5em;
+  background-color: #72250F;
+  color: #EBE0CD;;
+  padding: 1em;
   
 }
 
 header {
   align-items: center;
+  font-size: 1.7em;
+  background-color:#EBE0CD;;
 }
 
 h3 {
-  margin-top: 1em;
+  font-size: x-large;
+}
+
+.seniority {
+  width: 50%;
+  color:  #476388;
+  background-color: #191c2F;
+  padding: 15%;
+  font-size: xx-large;
   text-align: center;
 }
 
 
 .mostLoyal {
-  background-color: rgba(0, 24, 84, 0.329);
-  margin: 1em;
-  padding: 1em;
+  font-size: large;
 }
 li {
-  margin: .3em;
+  margin-top: .4em;
+  list-style-type: none;
 }
 
-.buts {
+/* .buts {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 1em;
-  width: 95%;
-  margin: auto;
+  width: 100%;
+  margin: 0;
+
 }
 
 button {
-  font-size: 1.5em;
-  width: 250px;
+  font-size: 1em;
+  width: 100%;
   padding: 1em;
-  background-color: #001854;
-  color: white;
+  margin: -1em;
+  background-color: #72250F;
+  color: #EBE0CD;
   border: none;
+  font-weight: 600;
 }
 
 button:hover {
-  font-size: 1.5em;
-  width: 250px;
+  font-size: 1em;
   padding: 1em;
-  background-color: #5171c0;
-  color: white;
+  background-color: #EBE0CD;
+  color: #72250F;
   border: none;
 }
 
-@media only screen and (max-width: 767px) {
-  .buts {
-    display: flex;
-    flex-direction: column;
-    padding: 1em;
-    width: 95%;
-  }
+
+@media only screen and (max-width: 700px) { */
   
   button {
-    font-size: 1.2em;
-    padding: 1em;
+    font-size: 1em;
+    padding: 1.5em;
     width: 100%;
-    background-color: #001854;
-    color: white;
+    background-color: #72250F;
+    color: #EBE0CD;
     border: none;
   }
   button:hover {
-    font-size: 1.2em;
-    padding: 1em;
+    font-size: 1em;
+    padding: 1.5em;
     width: 100%;
-    background-color: #5171c0;
-    color: white;
+    background-color: #EBE0CD;
+    color: #72250F;
     border: none;
   }
-}
+
+
+
 
 .senators {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+
 }
 
 figure {
@@ -102,8 +117,23 @@ figure {
   display: flex;
   flex-direction: column;
   margin: 1em;
+
 }
 
 figcaption {
   text-align: center;
+}
+
+main, footer {
+  background-color: #EBE0CD;
+}
+
+footer {
+  text-align: center;
+}
+
+footer h3 {
+  font-weight: 300; 
+  font-size: 1em;
+  padding: 1em;
 }

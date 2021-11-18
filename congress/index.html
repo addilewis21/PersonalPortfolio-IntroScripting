@@ -5,37 +5,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="style.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;700&family=Open+Sans:wght@300;500;600&family=Poppins:wght@200;300;500;600;800&display=swap" rel="stylesheet">
   <title>People of Congress</title>
 </head>
 <body>
   <header>
-<div class="headCon">
     <h1>People of Congress</h1>
+<div class="headCon">
+<ul>
     <h3>The members of Congress who vote with their party 100% of the time are:</h3>
-  <div class='mostLoyal'></div>
-  <h3 class='seniority'></h3>
+
+ <li> <div class='mostLoyal'></div> </li>
+  </ul>
+    <h3 class='seniority'></h3>
+
+
 </div>
 
-
-
-<div class="box" id="A" onclick="fnChangeBorder('A')">Click here !!</div>
-
-
-
-  </header>
-  <div class="buts">
-    <button id="sen" onclick="changeBorder(this);">Senators</button>
-    <button>Representatives</button>
-    <button class="repubButton">Republicans</button>
-    <button class="demoButton">Democrats</button>
+ <div class="buts">
+    <button id="senator_button">Senators</button>
+    <button id="represen_button">Representatives</button>
+    <!-- <button id="repub_button">Republicans</button> -->
+    <!-- <button id="demo_button">Democrats</button> -->
 </div>
+</header>
   <main>
     <div class="senators">
     </div>
   </main>
   <footer>
-    <h3>For Educational Purposes Only &copy; Thor Anderson 2021</h3>
+    <h3>For Educational Purposes Only &copy; Addi Lewis 2021</h3>
   </footer>
   <script src="congress.js" type="module"></script>
 </body>

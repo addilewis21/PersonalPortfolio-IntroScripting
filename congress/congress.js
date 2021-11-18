@@ -7,26 +7,9 @@ const senatorDiv = document.querySelector('.senators')
 const loyaltyHeading = document.querySelector('.mostLoyal')
 const seniorityHeading = document.querySelector('.seniority')
 
-const allRepub = members.filter((members) => members.party === 'R')
-const allDemo = members.filter((members) => members.party === 'D')
+const allRepub = senators.filter((senators) => senators.party === "R")
+const allDemo = senators.filter((senators) => senators.party === "D")
 
-
-function fnChangeBorder(boxId) {
-  document.getElementById(boxId).style.border = "solid #AA00FF";
-}
-
-
-
-
-
-
-
-
-
-
-
-// const republicanButton = document.querySelector('.repubButton')
-// republicanButton.addEventListener('click', () => SimplifiedMembers(allRepub))
 
 
 function SimplifiedMembers(chamberFilter) {
@@ -50,7 +33,12 @@ function SimplifiedMembers(chamberFilter) {
 }
 
 function populateSenatorDiv(simpleSenators) {
+  var count = 0
+  clearSenatorData()
+
   simpleSenators.forEach((senator) => {
+    count++ 
+
     const senFigure = document.createElement('figure')
     const figImg = document.createElement('img')
     const figCaption = document.createElement('figcaption')
@@ -62,6 +50,7 @@ function populateSenatorDiv(simpleSenators) {
     senFigure.appendChild(figCaption)
     senatorDiv.appendChild(senFigure)
   })
+  console.log(count)
 }
 
 
@@ -82,6 +71,39 @@ const mostLoyal = SimplifiedMembers().reduce((acc, senator) => {
   return acc
 }, [])
 
+
+
+const senator_button = document.querySelector('#senator_button');
+senator_button.addEventListener('click', () => {
+  console.log('click')
+  populateSenatorDiv(SimplifiedMembers('Sen.'))
+})
+
+const represen_button = document.querySelector('#represen_button');
+represen_button.addEventListener('click', () => {
+  console.log('click')
+  populateSenatorDiv(SimplifiedMembers('Rep.'))
+})
+
+
+
+// const demo_button = document.querySelector('#demo_button');
+// demo_button.addEventListener('click', () => {
+//   console.log('click')
+//   populateSenatorDiv(SimplifiedMembers(allDemo))
+// })
+
+
+
+function clearSenatorData(){
+  while(senatorDiv.firstChild){
+    senatorDiv.removeChild(senatorDiv.firstChild)
+  }
+}
+
+
+
+
 const cowardList = document.createElement('ol')
 
 const spineless = mostLoyal.map((coward) => {
@@ -92,5 +114,4 @@ const spineless = mostLoyal.map((coward) => {
 
 loyaltyHeading.appendChild(cowardList)
 
-populateSenatorDiv(SimplifiedMembers())
 
