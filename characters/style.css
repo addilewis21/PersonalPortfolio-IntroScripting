@@ -3,13 +3,13 @@
     flex-wrap: wrap;
     justify-content: center;
     background-color: #E2E8CE;
-    font-family: 'Montserrat', sans-serif;
-font-family: 'Open Sans', sans-serif;
+
 }
 
 * {
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 figure img {
@@ -39,7 +39,7 @@ button {
     border: 9px double #406450;
     color: #406450;
     font-weight: 700;
-   font-family: 'Montserrat', sans-serif;
+
    background-color: #C1D7CB;
 }
 
