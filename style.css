@@ -1,7 +1,7 @@
 html {
     box-sizing: border-box;
     scroll-behavior: smooth;
-        font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -96,14 +96,16 @@ figcaption {
 }
 
 #contact {
-    height: 19rem;
     background-color: #027353;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;
-    
+    font-size: 2em;
+}
+
+#profile-link {
+    font-size: 5em;
 }
 
 #contact h1 {
@@ -133,12 +135,17 @@ figcaption {
     transform: translateY(8px);
 }
 
+i {
+    padding: .5em;
+}
+
 footer {
-    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     color: #F2F2F2;
-    margin-bottom: -1rem;
+    height: auto;
+    padding: 1em;
+    font-weight: 300;
 }
 
 hr {
@@ -161,4 +168,5 @@ hr {
   html {
     font-size: 55%;
   }
+
 }
