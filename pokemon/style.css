@@ -3,6 +3,11 @@
     box-sizing: border-box;
 }
 
+header {
+    text-align: center;
+    padding: 10px;
+}
+
 .scene {
     width: 200px;
     height: 260px;
@@ -11,6 +16,9 @@
 .card {
     width: 100%;
     height: 100%;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
 }
 
 .cardFace {
@@ -25,4 +33,5 @@
 
 .back {
     background: rgb(75, 117, 180);
+    margin-top: 5px;
 }
