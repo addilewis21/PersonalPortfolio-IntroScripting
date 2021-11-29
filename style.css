@@ -27,7 +27,7 @@ ul {
     left: 0;
     width: 100%;
     z-index: 10;
-    background-color: #BF834E;
+    background-color: #105375;
 }
 
 #nav-list {
@@ -37,15 +37,19 @@ ul {
 #nav-list a {
     display: block;
     font-size: 2.2rem;
+    font-weight: 500;
     padding: 2rem;
+    color: #d4eefc;
 }
 
 #nav-list a:hover {
-    background-color: #261602;
+    background-color: #d4eefc;
+    color: #105375;
 }
 
 #welcome-section {
-   background-color: #F2F2F2;
+   background-color: #c2e7fa;
+   color: #105375;
    height: 100vh;
    display: flex;
    flex-direction: column;
@@ -60,7 +64,7 @@ ul {
 }
 
 h1 {
-    color: black;
+    color: #105375;
 }
 
 .projects-grid {
@@ -70,7 +74,7 @@ h1 {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    background-color: #71A66F;
+    background-color: #599BBD;
   }
 img {
     height: calc(100% - 6.8rem);
@@ -91,12 +95,12 @@ img {
 figcaption {
     text-align: center;
     font-size: x-large;
-    color: #2b2b2b;
-
+    color: #0b3c55;
+    font-weight: 400;
 }
 
 #contact {
-    background-color: #027353;
+    background-color: #355C70;
     display: flex;
     flex-direction: column;
     justify-content: center;
