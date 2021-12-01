@@ -3,6 +3,11 @@
     box-sizing: border-box;
 }
 
+.pokeGrid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 header {
     text-align: center;
     padding: 10px;
@@ -12,6 +17,7 @@ header {
     width: 200px;
     height: 260px;
     perspective: 600px;
+    margin: .5rem;
 }
 
 .card {
@@ -19,10 +25,9 @@ header {
     height: 100%;
     margin: auto;
     padding: 10px;
-    text-align: center;
+    transition: transform 1s;
     position: relative;
     cursor: pointer;
-    transform-style: preserve-3d;
 }
 
 .card.is-flipped {
