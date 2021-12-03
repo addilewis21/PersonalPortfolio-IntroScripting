@@ -1,13 +1,61 @@
 * {
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+  }
+  body {
+    background-color: #3b4cca;
+  }
+
+  header {
+    background-color: #3b4cca;
+    text-align: center;
+    padding: 2em;
+  }
+
+  h1 {
+    margin-bottom: .2em;
+    color: #ffde00; 
+    font-size: 4em;
+  }
+
+  button {
+    margin: .2em;
+    padding: .8em;
+    font-size: large;
+    background-color: #7989fc;
+    border: solid 2px #0b1141;
+    color:  #0b1141;
+    cursor: pointer;
+    font-weight: 600;
+    
   }
   
   .pokeGrid {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
-    margin: 0 auto;
+    background-color: #3b4cca;
+
   }
+
+  h4 {
+    text-align: center;
+    font-size: 1.5em;
+    padding-top: 20%;
+    
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  li {
+   margin: 1.5em 0;
+  }
+  
   
   .scene {
     width: 200px;
@@ -35,16 +83,36 @@
     height: 100%;
     backface-visibility: hidden;
   }
+
+  figcaption {
+    font-size: 1.3em;
+    background-color:  #fff6b4;
+    font-weight: 600;
+    color: #0b1141;
+  }
   
   .front {
-    background: #2a75bb;
+    background: #fcde0f;
+    border-color: #fff399;
+    text-align: center;
   }
   
   .back {
-    background: #c7a008;
+    background: #d42e18;
+    border-color: #f58070;
     transform: rotateY(180deg);
+    color: #ffd2cc;
   }
-  
+
+    
+  .front, .back {
+    border-radius: 10px;
+    padding: 5px;
+    border-width: 5px;
+    border-style: solid;
+    text-transform: capitalize;
+  }
+
   figure img {
-    width: 200px;
+    width: 190px;
   }

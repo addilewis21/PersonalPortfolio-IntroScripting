@@ -25,7 +25,7 @@ function getAPIData(url) {
   const loadButton = document.querySelector('.loadPokemon')
   loadButton.addEventListener('click', () => {
     removeChildren(pokeGrid)
-    loadPokemon(100, 5)
+    loadPokemon(0, 50)
         })
   
   const newButton = document.querySelector('.newPokemon')
