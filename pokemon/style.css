@@ -24,7 +24,7 @@
     margin: .2em;
     padding: .8em;
     font-size: large;
-    background-color: #7989fc;
+    background-color: #b3bbff;
     border: solid 2px #0b1141;
     color:  #0b1141;
     cursor: pointer;
@@ -45,7 +45,7 @@
     text-align: center;
     font-size: 1.5em;
     padding-top: 20%;
-    
+    text-decoration: underline;
   }
 
   ul {
