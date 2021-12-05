@@ -6,6 +6,7 @@
   }
   body {
     background-color: #3b4cca;
+    height: 100%;
   }
 
   header {
@@ -18,6 +19,7 @@
     margin-bottom: .2em;
     color: #ffde00; 
     font-size: 4em;
+    padding: .2em;
   }
 
   button {
@@ -116,3 +118,17 @@
   figure img {
     width: 190px;
   }
+
+  footer {
+    text-align: center;
+    background-color: #fcde0f;
+    
+  
+  }
+  
+  footer h3 {
+    font-weight: 300; 
+    font-size: 1em;
+    padding: 1em;
+  }
+  
