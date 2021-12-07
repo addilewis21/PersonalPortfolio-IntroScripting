@@ -54,7 +54,7 @@ function getAPIData(url) {
     let pokeHeight = parseInt(prompt("What is the height of your Pokemon?"))
     let pokeWeight = parseInt(prompt("What is the weight of your Pokemon?"))
     let pokeAbilities = prompt('What are your Pokemon abilities? (use a comma seperated list)')
-    let newPokemon = new Pokemon(pokeName, pokeHeight, pokeweight, getAbilitiesArray(pokeAbilities))
+    let newPokemon = new Pokemon(pokeName, pokeHeight, pokeWeight, getAbilitiesArray(pokeAbilities))
    
     console.log(newPokemon)
     populatePokeCard(newPokemon)
@@ -91,69 +91,68 @@ function typesBackground(pokemon, card) {
   }
 }
 
-  function populatePokeCard(singlePokemon) {
-    const pokeScene = document.createElement('div')
-    pokeScene.className = 'scene'
-    const pokeCard = document.createElement('div')
-    pokeCard.className = 'card'
-    pokeCard.addEventListener('click', () => 
-      pokeCard.classList.toggle('is-flipped')
-    )
-    const front = populateCardFront(singlePokemon)
-    const back = populateCardBack(singlePokemon)
+function populatePokeCard(singlePokemon) {
+  const pokeScene = document.createElement('div')
+  pokeScene.className = 'scene'
+  const pokeCard = document.createElement('div')
+  pokeCard.className = 'card'
+  pokeCard.addEventListener('click', () =>
+    pokeCard.classList.toggle('is-flipped'),
+  )
+  const front = populateCardFront(singlePokemon)
+  const back = populateCardBack(singlePokemon)
+
+  pokeCard.appendChild(front)
+  pokeCard.appendChild(back)
+  pokeScene.appendChild(pokeCard)
+  pokeGrid.appendChild(pokeScene)
+}
   
-    pokeCard.appendChild(front)
-    pokeCard.appendChild(back)
-    pokeScene.appendChild(pokeCard)
-    pokeGrid.appendChild(pokeScene)
-  }
-  
 
 
 
-  function populateCardFront(pokemon) {
-    const pokeFront = document.createElement('figure')
-    pokeFront.className = 'cardFace front'
-    const pokeImg = document.createElement('img')
-    if(pokemon.id === 9001) {
-        pokeImg.src = '../images/pokeball.png'
-    } else {
+function populateCardFront(pokemon) {
+  const pokeFront = document.createElement('figure')
+  pokeFront.className = 'cardFace front'
+  const pokeImg = document.createElement('img')
+  if (pokemon.id === 9001) {
+    pokeImg.src = '../images/pokeball.png'
+  } else {
     pokeImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
-    }
-    const pokeCaption = document.createElement('figcaption')
-    pokeCaption.textContent = `${pokemon.id} ${pokemon.name}`
-    pokeFront.appendChild(pokeImg)
-    pokeFront.appendChild(pokeCaption)
-
-
-    return pokeFront
   }
+  const pokeCaption = document.createElement('figcaption')
+  pokeCaption.textContent = `${pokemon.name}`
+  pokeFront.appendChild(pokeImg)
+  pokeFront.appendChild(pokeCaption)
+
+  // typesBackground(pokemon, pokeFront)
+
+  return pokeFront
+}
 
 
-
-  function populateCardBack(pokemon) {
-    const pokeBack = document.createElement('div')
-    pokeBack.className = 'cardFace back'
-    const label = document.createElement('h4')
-    label.textContent = 'Abilities:'
-    const abilityList = document.createElement('ul')
-    pokemon.abilities.forEach((ability) => {
-      let abilityItem = document.createElement('li')
-      abilityItem.textContent = ability.ability.name
-      abilityList.appendChild(abilityItem)
-    })
-
-    const pokeTypes = document.createElement('ol')
-    pokemon.types.forEach((pokeType) => {
-      let typeItem = document.createElement('li')
-      typeItem.textContent = pokeType.type.name
-      pokeTypes.appendChild(typeItem)
-    })
-    pokeBack.appendChild(label)
-    pokeBack.appendChild(abilityList)
-    pokeBack.appendChild(pokeTypes)
-    return pokeBack
-  }
+function populateCardBack(pokemon) {
+  const pokeBack = document.createElement('div')
+  pokeBack.className = 'cardFace back'
+  const label = document.createElement('h4')
+  label.textContent = 'Abilities:'
+  const abilityList = document.createElement('ul')
+  pokemon.abilities.forEach((ability) => {
+    let abilityItem = document.createElement('li')
+    abilityItem.textContent = ability.ability.name
+    abilityList.appendChild(abilityItem)
+  })
+  const pokeTypes = document.createElement('ol')
+  pokemon.types.forEach((pokeType) => {
+    let typeItem = document.createElement('li')
+    typeItem.textContent = pokeType.type.name
+    pokeTypes.appendChild(typeItem)
+  })
+  pokeBack.appendChild(label)
+  pokeBack.appendChild(abilityList)
+  pokeBack.appendChild(pokeTypes)
+  return pokeBack
+}
 
   class Pokemon {
       constructor(name, height, weight, abilities) {
