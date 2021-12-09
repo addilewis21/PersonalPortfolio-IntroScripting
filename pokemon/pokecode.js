@@ -19,12 +19,17 @@ function getAPIData(url) {
   //   })
   // }
 
+  let loadedPOkemon = []
+
  function loadPokemon(offset = 10, limit = 25) {
       getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`).then(async(data) => 
       {
         console.log(data.results)
         for (const pokemon of data.results) {
-        await  getAPIData(pokemon.url).then(pokeData => populatePokeCard(pokeData))
+        await  getAPIData(pokemon.url).then(pokeData => {
+          populatePokeCard(pokeData)
+         //  (21:00)
+        })
     }
   })
 }
