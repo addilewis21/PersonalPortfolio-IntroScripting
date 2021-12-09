@@ -11,7 +11,7 @@ function getAPIData(url) {
 
   let loadedPokemon = []
 
- function loadPokemon(offset = 10, limit = 25) {
+ function loadPokemon(offset = 0, limit = 25) {
       getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`).then(async(data) => 
       {
         for (const pokemon of data.results) {
