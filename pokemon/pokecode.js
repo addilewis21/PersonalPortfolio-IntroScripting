@@ -62,12 +62,13 @@ function getAPIData(url) {
 const chooseButton = document.querySelector(".choosePokemon")
 
 chooseButton.addEventListener('click', () => {
-  removeChildren(pokeGrid)
   let id = prompt('What is the ID of your Pokemon?')
   getAPIData(`https://pokeapi.co/api/v2/pokemon/${id}`).then((chosen) =>
-  populatePokeCard(chosen)
+    populatePokeCard(chosen)
   )
 })
+
+
   const pokeGrid = document.querySelector('.pokeGrid')
   const loadButton = document.querySelector('.loadPokemon')
   loadButton.addEventListener('click', () => {
@@ -95,21 +96,41 @@ chooseButton.addEventListener('click', () => {
             let pokeAbilities = prompt(
               "What abilities does your Pokemon have? (use a comma separated list)"
            )
-           let pokeColor = prompt("What type is your Pokemon? Grass, fire, water, or bug? (Choose one, type lowercase)")
+           let pokeTypes = prompt("What type is your Pokemon? Grass, fire, water, or bug? (Choose one, lowercase, space seperator)")
              
            let newPokemon = new Pokemon(
-              pokeName,
+             pokeName,
              pokeHeight,
              pokeWeight,
              getAbilitiesArray(pokeAbilities),
-             pokeColor
+             getTypesArray(pokeTypes)
             )
             console.log(newPokemon)
-           populatePokeCard(newPokemon)
+            populatePokeCard(newPokemon)
          })
 
+         function getAbilitiesArray(commaString) {
+          let tempArray = commaString.split(',')
+          console.log(tempArray)
+          return tempArray.map((abilityName) => {
+              return {
+                  ability: {
+                      name: abilityName
+                  }
+              }
+          })
+      }
 
-
+         function getTypesArray(spacedString) {
+          let tempArray = spacedString.split(' ')
+          return tempArray.map((typeName) => {
+            return {
+              type: {
+                name: typeName,
+              },
+            }
+          })
+        }
 
 
 const morePokemon = document.querySelector('.morePokemon')
@@ -120,28 +141,6 @@ morePokemon.addEventListener('click', () => {
 
 })
 
-function getAbilitiesArray(commaString) {
-    let tempArray = commaString.split(',')
-    console.log(tempArray)
-    return tempArray.map((abilityName) => {
-        return {
-            ability: {
-                name: abilityName
-            }
-        }
-    })
-}
-
-// function getTypesArray(spacedString) {
-//   let tempArray = spacedString.split(' ')
-//   return tempArray.map((typeName) => {
-//     return {
-//       type: {
-//         name: typeName,
-//       },
-//     }
-//   })
-// }
 
 function typesBackground(pokemon, card) {
   let pokeType1 = pokemon.types[0].type.name
@@ -213,10 +212,10 @@ function populateCardBack(pokemon) {
     pokeTypes.appendChild(typeItem)
   })
 
-  const pokeHP = document.createElement('h5')
-  pokeHP.textContent = `HP: ${pokemon.stats[0].base_stat}`
+  // const pokeHP = document.createElement('h5')
+  // pokeHP.textContent = `HP: ${pokemon.stats[0].base_stat}`
+  // pokeBack.appendChild(pokeHP)
 
-  pokeBack.appendChild(pokeHP)
 pokeBack.appendChild(label)
   pokeBack.appendChild(abilityList);
   pokeBack.appendChild(pokeTypes)
@@ -224,13 +223,13 @@ pokeBack.appendChild(label)
 }
 
 class Pokemon {
-  constructor(name, height, weight, abilities, color) {
+  constructor(name, height, weight, abilities, types) {
       this.id = 9001,
       this.name = name,
       this.height = height,
       this.weight = weight,
       this.abilities = abilities,
-      this.color = color
+      this.types = types
   }
 }
 
