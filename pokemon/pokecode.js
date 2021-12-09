@@ -19,7 +19,7 @@ function getAPIData(url) {
   //   })
   // }
 
- function loadPokemon(offset = 100, limit = 25) {
+ function loadPokemon(offset = 10, limit = 25) {
       getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`).then(async(data) => 
       {
         console.log(data.results)
@@ -201,7 +201,7 @@ function getPokeTypeColor(pokeType) {
       color = 'black'
       break
       case  'default':
-        color = '#999999'
+        color = '#fcde0f'
         break
   }
   return color
