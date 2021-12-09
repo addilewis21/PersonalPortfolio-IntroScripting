@@ -8,34 +8,66 @@ function getAPIData(url) {
     }
   }
 
-  // function findPokemon() {
-  //   getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`).then(async(data) => 
-  //   { 
-  //     let pokemonName = prompt('What is the name or id of the Pokemon you want to load?')
-  //     console.log(data.results)
-  //     for (const pokemon of data.results) {
-  //     await  getAPIData(pokemon.url).then(pokeData => populatePokeCard(pokeData))
-  //      }
-  //   })
-  // }
 
-  let loadedPOkemon = []
+  let loadedPokemon = []
 
  function loadPokemon(offset = 10, limit = 25) {
       getAPIData(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`).then(async(data) => 
       {
-        console.log(data.results)
         for (const pokemon of data.results) {
         await  getAPIData(pokemon.url).then(pokeData => {
+          loadedPokemon.push(pokeData)
           populatePokeCard(pokeData)
-         //  (21:00)
         })
     }
   })
 }
 
+// const allPokemon = getAllSimplePokemon()
 
-  
+// function getAllSimplePokemon() {
+//   const allPokemon = []
+//   getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=1118&offset=0`).then(
+//     async (data) => {
+//       console.log(data.results.length) 
+//       for (const pokemon of data.results) {
+//         await getAPIData(pokemon.url).then((pokeData) => {
+//           const mappedPokemon = {
+//             abilities: pokeData.abilities,
+//             height: pokeData.height,
+//             id: pokeData.id,
+//             name: pokeData.name,
+//             types: pokeData.types,
+//             weight: pokeData.weight,
+//           }
+//           allPokemon.push(mappedPokemon)
+//         })
+//       }
+//     },
+//   )
+//   return allPokemon
+// }
+
+// function getAllPokemonByType(type) {
+//   return allPokemon.filter((pokemon) => pokemon.types[0].type.name === type)
+// }
+
+// const grassButton = document.querySelector('.grassButton')
+// grassButton.addEventListener('click', () => {
+//   const allByType = getAllPokemonByType('grass')
+//   allByType.forEach((item) => populatePokeCard(item))
+// })
+
+
+const chooseButton = document.querySelector(".choosePokemon")
+
+chooseButton.addEventListener('click', () => {
+  removeChildren(pokeGrid)
+  let id = prompt('What is the ID of your Pokemon?')
+  getAPIData(`https://pokeapi.co/api/v2/pokemon/${id}`).then((chosen) =>
+  populatePokeCard(chosen)
+  )
+})
   const pokeGrid = document.querySelector('.pokeGrid')
   const loadButton = document.querySelector('.loadPokemon')
   loadButton.addEventListener('click', () => {
@@ -45,25 +77,40 @@ function getAPIData(url) {
 
   const colorButton = document.querySelector('.colorPokemon')
   colorButton.addEventListener('click', () => {
-            removeChildren(pokeGrid)
-            typesBackground(pokemon, pokeFront)
-            
-            loadPokemon(75, 25)
+                const domPokemon = document.querySelectorAll('.front')
+                domPokemon.forEach((item) => {
+                  const domPokeName = item.innerText.toLowerCase()
+                  const foundPokemon = loadedPokemon.find((pokemon) =>  pokemon.name === domPokeName)
+                  typesBackground(foundPokemon, item)
                 })
+             })
     
 
 
-  const newButton = document.querySelector('.newPokemon')
-  newButton.addEventListener('click', () => {
-    let pokeName = prompt('What is the name of your new Pokemon?')
-    let pokeHeight = parseInt(prompt("What is the height of your Pokemon?"))
-    let pokeWeight = parseInt(prompt("What is the weight of your Pokemon?"))
-    let pokeAbilities = prompt('What are your Pokemon abilities? (use a comma seperated list)')
-    let newPokemon = new Pokemon(pokeName, pokeHeight, pokeWeight, getAbilitiesArray(pokeAbilities))
-   
-    console.log(newPokemon)
-    populatePokeCard(newPokemon)
-  })
+     const newButton = document.querySelector(".newPokemon")
+       newButton.addEventListener("click", () => {
+           let pokeName = prompt("What is the name of your Pokemon?")
+           let pokeHeight = prompt("What is the height of your Pokemon?")
+           let pokeWeight = prompt("How many kilograms is your Pokemon?")
+            let pokeAbilities = prompt(
+              "What abilities does your Pokemon have? (use a comma separated list)"
+           )
+           let pokeColor = prompt("What type is your Pokemon? Grass, fire, water, or bug? (Choose one, type lowercase)")
+             
+           let newPokemon = new Pokemon(
+              pokeName,
+             pokeHeight,
+             pokeWeight,
+             getAbilitiesArray(pokeAbilities),
+             pokeColor
+            )
+            console.log(newPokemon)
+           populatePokeCard(newPokemon)
+         })
+
+
+
+
 
 const morePokemon = document.querySelector('.morePokemon')
 morePokemon.addEventListener('click', () => {
@@ -85,6 +132,17 @@ function getAbilitiesArray(commaString) {
     })
 }
 
+// function getTypesArray(spacedString) {
+//   let tempArray = spacedString.split(' ')
+//   return tempArray.map((typeName) => {
+//     return {
+//       type: {
+//         name: typeName,
+//       },
+//     }
+//   })
+// }
+
 function typesBackground(pokemon, card) {
   let pokeType1 = pokemon.types[0].type.name
   let pokeType2 = pokemon.types[1]?.type.name
@@ -97,22 +155,22 @@ function typesBackground(pokemon, card) {
 }
 
 function populatePokeCard(singlePokemon) {
-  const pokeScene = document.createElement('div')
-  pokeScene.className = 'scene'
-  const pokeCard = document.createElement('div')
-  pokeCard.className = 'card'
-  pokeCard.addEventListener('click', () =>
-    pokeCard.classList.toggle('is-flipped'),
-  )
-  const front = populateCardFront(singlePokemon)
-  const back = populateCardBack(singlePokemon)
+  const pokeScene = document.createElement("div")
+  pokeScene.className = "scene"
+  const pokeCard = document.createElement("div")
+  pokeCard.className = "card"
+  pokeCard.addEventListener("click", () => {
+    pokeCard.classList.toggle("is-flipped")
+  })
 
-  pokeCard.appendChild(front)
-  pokeCard.appendChild(back)
+  const cardFacefront = populateCardFront(singlePokemon)
+  const cardFaceback = populateCardBack(singlePokemon)
+
+  pokeCard.appendChild(cardFacefront)
+  pokeCard.appendChild(cardFaceback)
   pokeScene.appendChild(pokeCard)
   pokeGrid.appendChild(pokeScene)
 }
-  
 
 
 
@@ -127,85 +185,113 @@ function populateCardFront(pokemon) {
   }
   const pokeCaption = document.createElement('figcaption')
   pokeCaption.textContent = `${pokemon.name}`
+
   pokeFront.appendChild(pokeImg)
   pokeFront.appendChild(pokeCaption)
 
-  // typesBackground(pokemon, pokeFront)
 
   return pokeFront
 }
 
 
 function populateCardBack(pokemon) {
-  const pokeBack = document.createElement('div')
-  pokeBack.className = 'cardFace back'
-  const label = document.createElement('h4')
-  label.textContent = 'Abilities:'
-  const abilityList = document.createElement('ul')
-  pokemon.abilities.forEach((ability) => {
-    let abilityItem = document.createElement('li')
-    abilityItem.textContent = ability.ability.name
-    abilityList.appendChild(abilityItem)
-  })
-  const pokeTypes = document.createElement('ol')
+  const pokeBack = document.createElement("div");
+  pokeBack.className = "cardFace back";
+  const label = document.createElement("h4");
+  label.textContent = "Abilities:";
+  pokeBack.appendChild(label);
+  const abilityList = document.createElement("ul");
+  pokemon.abilities.forEach((abilityItem) => {
+    let listItem = document.createElement("li");
+    listItem.textContent = abilityItem.ability.name;
+    abilityList.appendChild(listItem);
+  });
+    const pokeTypes = document.createElement('ol')
   pokemon.types.forEach((pokeType) => {
     let typeItem = document.createElement('li')
     typeItem.textContent = pokeType.type.name
     pokeTypes.appendChild(typeItem)
   })
-  pokeBack.appendChild(label)
-  pokeBack.appendChild(abilityList)
+
+  const pokeHP = document.createElement('h5')
+  pokeHP.textContent = `HP: ${pokemon.stats[0].base_stat}`
+
+  pokeBack.appendChild(pokeHP)
+pokeBack.appendChild(label)
+  pokeBack.appendChild(abilityList);
   pokeBack.appendChild(pokeTypes)
-  return pokeBack
+  return pokeBack;
 }
 
-  class Pokemon {
-      constructor(name, height, weight, abilities) {
-          this.id = 9001,
-          this.name = name, 
-          this.height = height,
-          this.weight = weight,
-          this.abilities = abilities
-      }
+class Pokemon {
+  constructor(name, height, weight, abilities, color) {
+      this.id = 9001,
+      this.name = name,
+      this.height = height,
+      this.weight = weight,
+      this.abilities = abilities,
+      this.color = color
   }
+}
 
 function getPokeTypeColor(pokeType) {
   let color 
   switch (pokeType) {
-    case  'grass':
-      color = '#00ff00'
+    case  'bug':
+      color = '#A8B820'
       break
-      case  'fire':
-      color = '#ff0000'
-      break
-      case  'water':
-      color = '#0000ff'
-      break
-      case  'bug':
+    case  'dark':
       color = '#7fff00'
       break
-      case  'normal':
-      color = '#f5f5dc'
+    case  'dragon':
+      color = '#7038F8'
       break
-      case  'flying':
+    case  'electric':
+        color = '#fff01f'
+        break
+    case  'fairy':
+        color = '#EE99AC'
+        break
+    case  'fighting':
+        color = '#C03028'
+        break
+    case  'fire':
+        color = '#F08030'
+        break
+    case  'flying':
       color = '#00ffff'
       break
-      case  'electric':
-      color = '#c8ff00'
+    case  'ghost':
+      color = '#705898'
       break
-      case  'poisen':
-      color = '#c300ff'
+    case  'grass':
+      color = '#78C850'
       break
-      case  'psychic':
-      color = '#e96c95'
+    case  'ground':
+      color = '#30C068'
       break
-      case  'ground':
-      color = '#ceb250'
+    case  'ice':
+      color = '#98D8D8'
       break
-      case  'rock':
+    case  'normal':
+      color = '#A8A878'
+      break
+    case  'poison':
+      color = '#A040A0'
+      break
+    case  'psychic':
+        color = '#F85888'
+        break
+    case  'rock':
+      color = '#B8A038'
+      break
+    case  'steel':
       color = 'black'
       break
-      case  'default':
+    case  'water':
+      color = '#6890F0'
+      break
+     case  'default':
         color = '#fcde0f'
         break
   }

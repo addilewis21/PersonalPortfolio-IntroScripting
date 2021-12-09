@@ -44,19 +44,31 @@
 
   }
 
+  h5 {
+    font-weight: 300;
+  }
+
   h4 {
     text-align: center;
-    font-size: 1.5em;
-    padding-top: 20%;
+    font-size: 1.2em;
+    padding-top: 10%;
     text-decoration: underline;
   }
 
   ul {
     list-style-type: none;
+    font-weight: 500;
+  }
+
+  ol {
+    list-style-type: none;
+    font-style: italic;
+    font-weight: 200;
+    margin-top: 5%;
   }
 
   li {
-   margin: 1.5em 0;
+   margin: .5em 0;
   }
   
   
