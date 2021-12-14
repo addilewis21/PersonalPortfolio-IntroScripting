@@ -10,6 +10,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    background-color: #E2E8CE;
 }
 
 figure img {
@@ -66,3 +67,16 @@ img {
     border: 2px solid #406450;
     
 }
+
+footer {
+    text-align: center;
+  }
+  
+  footer h3 {
+    font-weight: 300; 
+    font-size: 1em;
+    padding: 1em;
+    background-color: #406450;
+    color: #C1D7CB;
+  }
+  
