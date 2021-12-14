@@ -72,6 +72,33 @@ const mostLoyal = SimplifiedMembers().reduce((acc, senator) => {
 }, [])
 
 
+const rParty = SimplifiedMembers().reduce((acc, senator) => {
+  if(senator.party === 'R') {
+      acc.push(senator)
+  }
+  return acc
+}, [])
+
+
+const republicanButton = document.querySelector('#republicanButton')
+republicanButton.addEventListener('click', () => {
+    populateSenatorDiv(rParty)
+})
+
+
+const democratsButton = document.querySelector('#democratsButton')
+democratsButton.addEventListener ('click', () => populateSenatorDiv(dParty))
+const dParty = SimplifiedMembers().reduce((acc, senator) => {
+    if(senator.party === 'D') {
+        acc.push(senator)
+    }
+    return acc
+}, [])
+
+
+
+
+
 
 const senator_button = document.querySelector('#senator_button');
 senator_button.addEventListener('click', () => {
