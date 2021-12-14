@@ -91,11 +91,10 @@ democratsButton.addEventListener ('click', () => populateSenatorDiv(dParty))
 const dParty = SimplifiedMembers().reduce((acc, senator) => {
     if(senator.party === 'D') {
         acc.push(senator)
+        
     }
     return acc
 }, [])
-
-
 
 
 
